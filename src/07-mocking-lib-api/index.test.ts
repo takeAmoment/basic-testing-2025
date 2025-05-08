@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { THROTTLE_TIME, throttledGetDataFromApi } from './index';
+import { throttledGetDataFromApi, THROTTLE_TIME } from './index';
 
 jest.mock('axios');
+jest.mock('lodash/throttle');
 
 const relativePath = '/post/1';
 const baseURL = 'https://jsonplaceholder.typicode.com';
