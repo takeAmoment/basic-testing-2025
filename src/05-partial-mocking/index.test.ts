@@ -27,6 +27,7 @@ describe('partial mocking', () => {
     mockTwo();
 
     expect(consoleLogSpy).not.toHaveBeenCalled();
+    consoleLogSpy.mockRestore();
   });
 
   test('unmockedFunction should log into console', () => {
@@ -38,5 +39,6 @@ describe('partial mocking', () => {
 
     expect(consoleLogSpy).toHaveBeenCalled();
     expect(consoleLogSpy).toHaveBeenCalledWith('I am not mocked');
+    consoleLogSpy.mockRestore();
   });
 });
