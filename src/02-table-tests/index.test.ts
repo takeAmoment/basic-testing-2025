@@ -23,11 +23,12 @@ const testCases = [
 ];
 
 describe('simpleCalculator', () => {
-  testCases.forEach(({ a, b, action, expected }) => {
-    test(`should return ${expected} by operation ${action} on ${a} and ${b}`, () => {
+  test.each(testCases)(
+    `should return $expected by operation $action on $a and $b`,
+    ({ a, b, action, expected }) => {
       const result = simpleCalculator({ a, b, action });
 
       expect(result).toBe(expected);
-    });
-  });
+    },
+  );
 });
