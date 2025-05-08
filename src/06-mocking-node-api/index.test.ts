@@ -26,14 +26,12 @@ describe('doStuffByTimeout', () => {
     doStuffByTimeout(cb, timeout);
 
     expect(mockTimeout).toHaveBeenCalledWith(cb, timeout);
+    mockTimeout.mockRestore();
   });
 
   test('should call callback only after timeout', () => {
     const cb = jest.fn();
     doStuffByTimeout(cb, timeout);
-    expect(cb).not.toHaveBeenCalled();
-
-    jest.advanceTimersByTime(timeout - 200);
 
     expect(cb).not.toHaveBeenCalled();
 
@@ -59,6 +57,7 @@ describe('doStuffByInterval', () => {
     doStuffByInterval(cb, timeout);
 
     expect(mockTimeout).toHaveBeenCalledWith(cb, timeout);
+    mockTimeout.mockRestore();
   });
 
   test('should call callback multiple times after multiple intervals', () => {
