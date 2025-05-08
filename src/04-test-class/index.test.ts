@@ -65,6 +65,7 @@ describe('BankAccount', () => {
     bankAccount.transfer(transferAmount, recipientAccount);
 
     expect(bankAccount.getBalance()).toBe(20);
+    expect(recipientAccount.getBalance()).toBe(180);
   });
 
   test('fetchBalance should return number in case if request did not failed', async () => {
